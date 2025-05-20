@@ -1,0 +1,226 @@
+{% extends 'student_base.html' %}
+{% block content %}
+
+<!-- Main  -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-5 align-self-center">
+                <h4 class="page-title">Dashboard</h4>
+            </div>
+            <div class="col-7 align-self-center">
+                <div class="d-flex align-items-center justify-content-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Sales chart -->
+        <!-- ============================================================== -->
+        <div class="card-group">
+            <!-- <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <i class="mdi mdi-emoticon font-20 text-muted"></i>
+                                    <p class="font-16 m-b-5"></p>
+                                </div>
+                                <div class="ml-auto">
+                                    <h1 class="font-light text-right">23</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar"
+                                    style="width: 75%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- Column -->
+            <!-- Column -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <i class="fas fa-book"></i>
+                                    <p class="font-16 m-b-5">Materials</p>
+                                </div>
+                                <div class="ml-auto">
+                                    <h1 class="font-light text-right">{{materials.count}}</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar"
+                                    style="width: 60%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <i class="mdi mdi-book-open-page-variant font-20 text-muted"></i>
+                                    <p class="font-16 m-b-5">Available Exam</p>
+                                </div>
+                                <div class="ml-auto">
+                                    <h1 class="font-light text-right">{{ exam_count.count }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-purple" role="progressbar"
+                                    style="width: 65%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- Sales chart -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Email campaign chart -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Attendance</h4>
+                        <div id="campaign" style="height: 168px; width: 100%;" class="m-t-10"></div>
+                        <!-- row -->
+                        <div class="row text-center text-lg-left">
+                            <!-- column -->
+                            <div class="col-6">
+                                <h4 class="m-b-0 font-medium">{{ attendance_percentage }}%</h4>
+                                <span class="text-muted">Your Attendance</span>
+                            </div>
+                            <!-- column -->
+                            <div class="col-6">
+                                <h4 class="m-b-0 font-medium">{{ total_lecture }}</h4>
+                                <span class="text-muted">Total Lecture</span>
+                            </div>
+                            <!-- column -->
+                            <!-- <div class="col-4">
+                                <h4 class="m-b-0 font-medium">18%</h4>
+                                <span class="text-muted">Bounce</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+            <!-- Replace the sales ratio card with today's timetable -->
+<div class="col-lg-9 col-md-12 order-lg-2 order-md-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <div>
+                    <h4 class="card-title">Today's Classes - {{ day_name }}, {{ today_date|date:"d M, Y" }}</h4>
+                </div>
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table table-hover">
+                    <thead class="bg-info text-white">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Teacher</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lecture in today_timetable %}
+                        <tr>
+                            <td>{{ lecture.subject_name }}</td>
+                            <td>{{ lecture.teacher.full_name }}</td>
+                            <td>{{ lecture.start_time|time:"h:i A" }}</td>
+                            <td>{{ lecture.end_time|time:"h:i A" }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center">No classes scheduled for today</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Link to full timetable -->
+            <div class="text-right mt-3">
+                <a href="{% url 'student:time_table' %}" class="btn btn-primary btn-sm">View Full Timetable</a>
+            </div>
+        </div>
+    </div>
+</div>       
+</div>
+        <!-- ============================================================== -->
+        <!-- Email campaign chart -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Ravenue - page-view-bounce rate -->
+        <!-- ============================================================== -->
+        
+        <!-- ============================================================== -->
+        <!-- Recent comment and chats -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by GM College
+        <a href="#">GM College</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+ <!--  -->
+<script>
+    let attendance = {{ attendance_percentage|default:0 }};
+    let absent = 100 - attendance;
+</script>
+{% endblock %}
