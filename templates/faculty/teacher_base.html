@@ -285,12 +285,12 @@
                                     </div>
                                 </div>
                                 <div class="profile-dis scrollable">
-                                    <a class="dropdown-item" href="{% url 'teacher_profile' %}">
+                                    <a class="dropdown-item" href="{% url 'faculty:teacher_profile' %}">
                                         <i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                     <!-- <a class="dropdown-item" href="javascript:void(0)">
                                         <i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a> -->
                                    
-                                    <a class="dropdown-item" href="{% url 'teacher_logout' %}">
+                                    <a class="dropdown-item" href="{% url 'faculty:teacher_logout' %}">
                                         <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                     <div class="dropdown-divider"></div>
                                 </div>
@@ -344,13 +344,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="{% url 'create_exam' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:create_exam' %}" class="sidebar-link">
                                         <i class="mdi mdi-email"></i>
                                         <span class="hide-menu"> Create Exam </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{% url 'manage_exam' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:manage_exam' %}" class="sidebar-link">
                                         <i class="mdi mdi-email"></i>
                                         <span class="hide-menu"> Manage Exam </span>
                                     </a>
@@ -367,7 +367,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="{% url 'manage_material' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:manage_material' %}" class="sidebar-link">
                                         <i class="fas fa-file-alt"></i>
                                         <span class="hide-menu"> Manage Materials </span>
                                     </a>
@@ -384,14 +384,14 @@
                             <ul aria-expanded="false" class="collapse first-level">
                                 {% if teacher.teacher_role == "Principal" or teacher.teacher_role == "hod" %}
                                 <li class="sidebar-item">
-                                    <a href="{% url 'manage_timetable' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:manage_timetable' %}" class="sidebar-link">
                                         <i class="mdi mdi-account-key"></i>
                                         <span class="hide-menu"> Manage TimeTable </span>
                                     </a>
                                 </li>
                                 {% else %}
                                 <li class="sidebar-item">
-                                    <a href="{% url 'show_timetable' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:show_timetable' %}" class="sidebar-link">
                                         <i class="mdi mdi-account-key"></i>
                                         <span class="hide-menu"> Show TimeTable </span>
                                     </a>
@@ -408,13 +408,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="{% url 'attendance_timetable' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:attendance_timetable' %}" class="sidebar-link">
                                         <i class="mdi mdi-account-box"></i>
                                         <span class="hide-menu">Take Attendance</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{% url 'attendance_semester_list' %}" class="sidebar-link">
+                                    <a href="{% url 'faculty:attendance_semester_list' %}" class="sidebar-link">
                                         <i class="mdi mdi-account-box"></i>
                                         <span class="hide-menu">Show Attendance</span>
                                     </a>
